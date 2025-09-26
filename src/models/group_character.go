@@ -12,7 +12,7 @@ import (
 // GroupCharacter 群组角色模型
 type GroupCharacter struct {
 	ID           uint      `json:"id" gorm:"primaryKey"`
-	GID          uint      `json:"gid" gorm:"not null;index;comment:群组ID，关联llm_groups表的id字段"`
+	GID          uint      `json:"gid" gorm:"column:gid;not null;index;comment:群组ID，关联llm_groups表的id字段"`
 	Name         string    `json:"name" gorm:"size:100;not null;index;comment:角色名称"`
 	Personality  string    `json:"personality" gorm:"size:100;not null;default:'';comment:角色性格描述"`
 	Model        string    `json:"model" gorm:"size:50;index;comment:AI模型名称"`

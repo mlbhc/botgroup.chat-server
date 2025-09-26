@@ -12,6 +12,7 @@ services:
       #- rag-app
     networks:
       - app-network
+    restart: always
 
   golang-app:
     build:

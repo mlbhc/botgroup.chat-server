@@ -21,6 +21,7 @@ type LLMGroup struct {
 	Description           string   `json:"description"`
 	Members               []string `json:"members"`
 	IsGroupDiscussionMode bool     `json:"isGroupDiscussionMode"`
+	Static                *bool    `json:"static"`
 }
 
 // LLMCharacter 定义LLM角色的配置结构
@@ -269,6 +270,9 @@ func LoadConfig() {
 						if isGroupMode, exists := groupMap["isGroupDiscussionMode"]; exists {
 							group.IsGroupDiscussionMode = isGroupMode.(bool)
 						}
+						// 设置Static默认值为true
+						staticValue := true
+						group.Static = &staticValue
 
 						// 处理members数组
 						if members, exists := groupMap["members"]; exists {
@@ -290,6 +294,14 @@ func LoadConfig() {
 			}
 		} else {
 			log.Println("无法找到llm_groups配置")
+		}
+	}
+
+	// 确保所有群组的Static字段都设置为true（如果未设置）
+	for _, group := range AppConfig.LLMGroups {
+		if group.Static == nil {
+			staticValue := true
+			group.Static = &staticValue
 		}
 	}
 
