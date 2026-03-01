@@ -71,7 +71,7 @@ func InitDatabase() {
 // buildDSN 构建数据库连接字符串
 func buildDSN() string {
 	// 从环境变量获取数据库配置
-	host := getEnv("MYSQL_HOST", "localhost")
+	host := getEnv("MYSQL_HOST", "mysql")
 	port := getEnv("MYSQL_PORT", "3306")
 	user := getEnv("MYSQL_USER", "botgroup")
 	password := getEnv("MYSQL_PASSWORD", "botgroup123")
