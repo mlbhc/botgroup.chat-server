@@ -318,14 +318,14 @@ func LoadConfig() {
 
 	// 处理模型名称中的特殊字符
 	for modelName, provider := range AppConfig.LLMModels {
-		if newModelName := strings.Replace(modelName, "__", ".", 1); newModelName != modelName {
+		if newModelName := strings.Replace(modelName, "__", ".", -1); newModelName != modelName {
 			AppConfig.LLMModels[newModelName] = provider
 			delete(AppConfig.LLMModels, modelName)
 		}
 	}
 	// 处理角色model中的特殊字符
 	for _, character := range AppConfig.LLMCharacters {
-		if newCharacterModel := strings.Replace(character.Model, "__", ".", 1); newCharacterModel != character.Model {
+		if newCharacterModel := strings.Replace(character.Model, "__", ".", -1); newCharacterModel != character.Model {
 			character.Model = newCharacterModel
 		}
 	}
