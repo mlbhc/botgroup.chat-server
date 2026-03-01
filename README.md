@@ -2,6 +2,7 @@
 
 ## 项目背景
 BotGroup.Chat 是一个基于 React 的多人 AI 聊天应用，支持多个 AI 角色同时参与对话，提供类似群聊的交互体验。
+这个fork修复了我自己配置时的问题，在原项目修复这些问题前提醒我自己修了哪里
 
 > 🔗 原项目地址：[botgroup.chat](https://github.com/maojindao55/botgroup.chat)
 
